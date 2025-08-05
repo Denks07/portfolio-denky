@@ -1,516 +1,676 @@
 <!DOCTYPE html>
 <html class="no-js ss-preload" lang="en">
-<head>
-
+  <head>
     <!--- basic page needs
     ================================================== -->
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Denky</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <!-- mobile specific metas
     ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <!-- favicons
     ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+  </head>
 
-</head>
-
-<body id="top">
-
-
+  <body id="top">
     <!-- # preloader
     ================================================== -->
     <div id="preloader">
-        <div id="loader">
-        </div>
+      <div id="loader"></div>
     </div>
-
 
     <!-- # page wrap
     ================================================== -->
     <div class="s-pagewrap">
+      <div class="circles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-        <div class="circles">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+      <!-- ## site header 
+        ================================================== -->
+      <header class="s-header">
+        <div class="header-mobile">
+          <span class="mobile-home-link"><a href="index.html">Denky.</a></span>
+          <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
         </div>
 
+        <div class="row wide main-nav-wrap">
+          <nav class="column lg-12 main-nav">
+            <ul>
+              <li><a href="index.html" class="home-link">Denky.</a></li>
+              <li class="current">
+                <a href="#intro" class="smoothscroll">Intro</a>
+              </li>
+              <li><a href="#about" class="smoothscroll">About</a></li>
+              <li><a href="#works" class="smoothscroll">Works</a></li>
+              <li><a href="#contact" class="smoothscroll">Say Hello</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- end s-header -->
 
-        <!-- ## site header 
-        ================================================== -->
-        <header class="s-header">
-
-            <div class="header-mobile">
-                <span class="mobile-home-link"><a href="index.html">Denky.</a></span>
-                <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
-            </div>
-
-            <div class="row wide main-nav-wrap">
-                <nav class="column lg-12 main-nav">
-                    <ul>
-                        <li><a href="index.html" class="home-link">Denky.</a></li>
-                        <li class="current"><a href="#intro" class="smoothscroll">Intro</a></li>
-                        <li><a href="#about" class="smoothscroll">About</a></li>
-                        <li><a href="#works" class="smoothscroll">Works</a></li>
-                        <li><a href="#contact" class="smoothscroll">Say Hello</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-        </header> <!-- end s-header -->
-
-
-        <!-- ## main content
+      <!-- ## main content
         ==================================================- -->
-        <main class="s-content">
-
-
-            <!-- ### intro
+      <main class="s-content">
+        <!-- ### intro
             ================================================== -->
-            <section id="intro" class="s-intro target-section">
-
-                <div class="row intro-content wide">
-
-                    <div class="column">
-                        <div class="text-pretitle with-line">
-                            Hello World
-                        </div>
-                        <h1 class="text-huge-title">
-                            Hi, I’m Denky<br>
-                            A UI/UX Designer & Frontend Developer<br>
-                            from Jakarta
-                        </h1>                        
-                    </div>
-
-                    <ul class="intro-social">
-                        <li><a href="https://www.linkedin.com/in/denky-sudarto-95b183343/">Linkedin</a></li>
-                        <li><a href="https://www.instagram.com/den_19.77/">Instagram</a></li>
-                    </ul>
-
-                </div> <!-- end intro content -->
-
-                <a href="#about" class="intro-scrolldown smoothscroll">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"/></svg>
-                </a>
-
-            </section> <!-- end s-intro -->
-
-
-            <!-- ### about
-            ================================================== -->
-            <section id="about" class="s-about target-section">
-
-
-                <div class="row about-info wide" data-animate-block>
-
-                    <div class="column lg-6 md-12 about-info__pic-block">
-                        <img src="images/about-photo.jpg" 
-                             srcset="images/about-photo.jpg 1x, images/about-photo@2x.jpg 2x" alt="about-photo" class="about-info__pic" data-animate-el>
-                    </div>
-
-                    <div class="column lg-6 md-12">
-                        <div class="about-info__text" >
-
-                            <h2 class="text-pretitle with-line" data-animate-el>
-                                About
-                            </h2>
-                            <p class="attention-getter" data-animate-el>
-                                Hi, I’m Denky, a UI/UX designer and frontend developer with a strong passion for technology and creativity. I specialize in crafting visually appealing and functional designs while building responsive and user-friendly interfaces. With expertise in UI/UX design and frontend development, my focus is on delivering solutions that are not only aesthetically pleasing but also aligned with user needs.
-                            </p>
-                            <a href="https://www.instagram.com/den_19.77/" class="btn btn--medium u-fullwidth" data-animate-el>Let's Collaborate</a>
-                        </div>
-                    </div>
-                </div> <!-- about-info -->
-
-
-                <div class="row about-expertise" data-animate-block>
-                    <div class="column lg-12">
-
-                        <h2 class="text-pretitle" data-animate-el>Expertise</h2>
-
-                        <ul class="skills-list h1" data-animate-el>
-                            <li>UI/UX Design</li>
-                            <li>Website & App Design</li>
-                            <li>Frontend Developer</li>
-                            <li>Prototyping</li>
-                            <li>Responsive Design</li>
-                        </ul>                        
-
-                    </div>
-                </div> <!-- end about-expertise -->
-
-
-                <div class="row about-timelines" data-animate-block>
-
-                    <div class="column lg-6 tab-12">
-
-                        <h2 class="text-pretitle" data-animate-el>
-                            Experience
-                        </h2>
-
-                        <div class="timeline" data-animate-el>
-
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">Freelance Projects</h4>
-                                    <h5 class="timeline__meta">Frontend Developer</h5>
-                                    <p class="timeline__timeframe">2023</p>
-                                </div>
-                                <div class="timeline__desc">
-                                    <p>I have worked on freelance projects, including developing an e-commerce website and creating responsive and interactive landing pages. These projects helped me build a solid foundation in frontend development and website responsiveness.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">Mobile App UI Design</h4>
-                                    <h5 class="timeline__meta">UI/UX Designer</h5>
-                                    <p class="timeline__timeframe">2024</p>
-                                </div>
-                                <div class="timeline__desc">
-                                    <p>I designed user interfaces for mobile applications, focusing on creating intuitive and visually appealing layouts. This experience allowed me to explore the fundamentals of user experience design and improve my design skills.</p>
-                                </div>
-                            </div>                            
-    
-                        </div> <!-- end timeline -->
-
-                    </div> <!-- end column -->
-
-                    <div class="column lg-6 tab-12">
-
-                        <h2 class="text-pretitle" data-animate-el>
-                            Education
-                        </h2>
-
-                        <div class="timeline" data-animate-el>
-
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">SMK Cinta Kasih Tzu Chi</h4>
-                                    <h5 class="timeline__meta">Major in Software and Game Development (PPLG)</h5>
-                                    <p class="timeline__timeframe">May 2026</p>
-                                </div>
-                                <div class="timeline__desc">
-                                    <p>I am currently pursuing my education at SMK Cinta Kasih Tzu Chi, specializing in Software and Game Development (PPLG). During my time here, I have been developing skills in software engineering, user interface design, and game development to prepare for a career in the technology field.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">SMP Negeri 204 Jakarta</h4>
-                                    <h5 class="timeline__meta">Junior High School Graduate</h5>
-                                    <p class="timeline__timeframe">July 2023</p>
-                                </div>
-                                <div class="timeline__desc">
-                                    <p>Before enrolling in SMK Cinta Kasih Tzu Chi, I completed my junior high school education at SMP Negeri 204 Jakarta. This institution provided me with a strong academic foundation that has greatly contributed to my personal and educational development.</p>
-                                </div>
-                            </div>                            
-    
-                        </div> <!-- end timeline -->
-                        
-                    </div> <!-- end column -->
-
-
-                </div> <!-- end about-timelines -->
-
-            </section> <!-- end s-about -->
-
-
-            <!-- ### works
-            ================================================== -->
-            <section id="works" class="s-works target-section">
-
-
-                <div class="row works-portfolio">
-
-                    <div class="column lg-12" data-animate-block>
-
-                        <h2 class="text-pretitle" data-animate-el>
-                            Recent Works
-                        </h2>
-                        <p class="h1" data-animate-el>
-                            Here are some of my favorite projects I have done lately. Feel free to check them out.
-                        </p>
-    
-                        <ul class="folio-list row block-lg-one-half block-stack-on-1000">
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-01">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/project-1.jpg"
-                                             srcset="images/portfolio/project-1.jpg 1x, images/portfolio/project-1@2x.jpg 2x"  alt="project-1">
-                                    </div>
-                                    
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Website
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            Data Management Dashboard.
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> <!--end folio-list__item -->
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-02">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/project-2.jpg" 
-                                             srcset="images/portfolio/project-2.jpg 1x, images/portfolio/project-2@2x.jpg 2x" alt="project-2">
-                                    </div>
-                                    
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Website
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            DOCCURE.
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> <!--end folio-list__item -->
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-03">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/project-3.jpg" 
-                                             srcset="images/portfolio/project-3.jpg 1x, images/portfolio/project-3@2x.jpg 2x" alt="project-3">
-                                    </div>
-                                    
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Mobile App
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            Personal Financial Record.
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> <!--end folio-list__item -->
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-04">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/project-4.jpg"
-                                             srcset="images/portfolio/project-4.jpg 1x, images/portfolio/project-4@2x.jpg 2x" alt="project-4">
-                                    </div>
-                                    
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Mobile App
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            To-Do App.
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> <!--end folio-list__item -->
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-05">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/project-5.jpg" 
-                                             srcset="images/portfolio/project-5.jpg 1x, images/portfolio/project-5@2x.jpg 2x" alt="project-5">
-                                    </div>
-                                    
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Landing Page Design
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            AbsenKita.
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> <!--end folio-list__item -->
-
-                            <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-06">
-                                    <div class="folio-list__item-pic">
-                                        <img src="images/portfolio/project-6.jpg" 
-                                             srcset="images/portfolio/project-6.jpg 1x, images/portfolio/project-6@2x.jpg 2x" alt="project-6">
-                                    </div>
-                                    
-                                    <div class="folio-list__item-text">
-                                        <div class="folio-list__item-cat">
-                                            Landing Page Design
-                                        </div>
-                                        <div class="folio-list__item-title">
-                                            Mountain Adventure Guide.
-                                        </div>
-                                    </div>
-                                </a>
-                            </li> <!--end folio-list__item -->
-
-                        </ul> <!-- end folio-list -->
-
-                    </div> <!-- end column -->
-
-
-                    <!-- Modal Templates Popup
-                    -------------------------------------------- -->
-                    <div id="modal-01" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-project-1.jpg" alt="project-1">
-                
-                            <div class="modal-popup__desc">
-                                <h5>Data Management Dashboard</h5>
-                                <p>Welcome to the Admin Dashboard! Here, you'll find easy access to User, Supplier, Stock, Incoming Goods, Outgoing Goods, and Borrow Goods. The Log In button is at the top right. In the center, there's a welcoming "Admin Dashboard" title with a "Welcome to Data Management" message. This dashboard helps you manage data efficiently with Laravel, Tailwind CSS, and Vue.js.</p>
-                            </div>
-                        </div>
-                    </div> <!-- end modal -->
-
-                    <div id="modal-02" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-project-2.jpg" alt="project-2">
-                
-                            <div class="modal-popup__desc">
-                                <h5>DOCCURE</h5>
-                                <p>This website allows users to search for doctors, clinics, and hospitals, as well as book appointments. The main section features a search bar that simplifies finding services based on location and the type of medical care needed. The page also highlights clinic specializations and provides quick access to login or sign-up options. The design is clean, modern, and emphasizes ease of navigation.</p>
-                            </div>
-                        </div>
-                    </div> <!-- end modal -->
-
-                    <div id="modal-03" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-project-3.jpg" alt="project-3">
-                
-                            <div class="modal-popup__desc">
-                                <h5>Personal Financial Record</h5>
-                                <p>The image above showcases a React Native-based financial application for tracking income and expenses. The interface displays the total balance, a financial trend graph, and a transaction list with options to add and edit entries. The design is simple, responsive, and user-friendly.</p>
-                            </div>
-                        </div>
-                    </div> <!-- end modal -->
-
-                    <div id="modal-04" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-project-4.jpg" alt="project-4">
-                
-                            <div class="modal-popup__desc">
-                                <h5>To-Do App</h5>
-                                <p>
-                                    The image above shows the interface of a mobile application built with React Native, featuring a task list. The app has a header that reads "Task Notes," an input field to add new tasks with a plus (+) icon, and a list of tasks displayed in cards containing the task name and a trash bin icon to delete them. The app is designed with a minimalist and responsive style, ideal for noting and managing daily tasks.</p>
-                            </div>
-                        </div>
-                    </div> <!-- end modal -->
-
-                    <div id="modal-05" hidden>
-                        <div class="modal-popup">
-
-                            <img src="images/portfolio/gallery/g-project-5.jpg" alt="project-5">
-                
-                            <div class="modal-popup__desc">
-                                <h5>AbsenKita</h5>
-                                <p>The image above shows the interface of the "AbsenKita" app, highlighting features such as online attendance, attendance from home, leave requests, as well as the login screen, email verification, and more. Created with Figma, the design uses a consistent orange color scheme, simple illustrations, and a user-friendly layout.</p>
-                            </div>
-                        </div>
-                    </div> <!-- end modal -->
-
-                    <div id="modal-06" hidden>
-                        <div class="modal-popup">
-                            <img src="images/portfolio/gallery/g-project-6.jpg" alt="project-6">
-                
-                            <div class="modal-popup__desc">
-                                <h5>Mountain Adventure Guide</h5>
-                                <p>The image above is a design of a landing page with a mountain climbing theme, created with Figma. The design features captivating nature visuals, an inspiring main headline, and segmented content that includes a climbing guide with a combination of text and images. The appearance is modern and professional, ideal for attracting nature enthusiasts.</p>
-                            </div>
-                        </div>
-                    </div> <!-- end modal -->
-
-                </div> <!-- end works-portfolio -->
-
-            </section> <!-- end s-works -->
-
-
-            <!-- ### contact
-            ================================================== -->
-            <section id="contact" class="s-contact target-section">
-
-                <div class="row contact-top">
-                    <div class="column lg-12">
-                        <h2 class="text-pretitle">
-                            Get In Touch
-                        </h2>
-
-                        <p class="h1">
-                            I’d love to hear from you.
-                            Whether you have a question or just 
-                            a chat about frontend development, design, tech, or art  — feel free to message me.
-                        </p>
-                    </div>
-                </div> <!-- end contact-top -->
-
-                <div class="row contact-bottom">
-                    <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
-                        <h3 class="text-pretitle">Reach me at</h3>
-                        <p class="contact-links">
-                            <a href="mailto:@denkysudarto.com" class="mailtoui">@denkysudarto.com</a> <br>
-                            <a href="tel:+62895395422678">+62 895 3954 22678</a>
-                        </p>
-                    </div>
-                    <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
-                        <h3 class="text-pretitle">Social</h3>
-                        <ul class="contact-social">
-                            <li><a href="https://www.linkedin.com/in/denky-sudarto-95b183343/">Linkedin</a></li>
-                            <li><a href="https://www.instagram.com/den_19.77/">Instagram</a></li>
-                            <li><a href="https://github.com/Dendar07/">Github</a></li>
-                        </ul>
-                    </div>
-                    <div class="column lg-4 md-12 contact-block">
-                        <a href="mailto:@denkysudarto.com" class="mailtoui btn btn--medium u-fullwidth contact-btn">Say Hello.</a>
-                    </div>
-                </div> <!-- end contact-bottom -->
-
-            </section> <!-- end contact -->
-
-        </main> <!-- end s-content -->
-
-
-        <!-- ## footer
-        ================================================== -->
-        <footer class="s-footer">
-
-            <div class="row">
-                <div class="column ss-copyright">
-                    <span>© Copyright Denky 2024</span> 
-                    <span>Design by <a href="#intro" class="smoothscroll">Denky Sudarto</a></span>
-                </div>
-
-                <div class="ss-go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"/></svg>
-                    </a>
-                </div>
+        <section id="intro" class="s-intro target-section">
+          <div class="row intro-content wide">
+            <div class="column">
+              <div class="text-pretitle with-line">Hello World</div>
+              <h1 class="text-huge-title">
+                Hi, I’m Denky<br />
+                A UI/UX Designer & Frontend Developer<br />
+                from Jakarta
+              </h1>
             </div>
 
-        </footer> <!-- end s-footer -->
+            <ul class="intro-social">
+              <li>
+                <a href="https://www.linkedin.com/in/denky-sudarto-95b183343/"
+                  >Linkedin</a
+                >
+              </li>
+              <li>
+                <a href="https://www.instagram.com/den_19.77/">Instagram</a>
+              </li>
+            </ul>
+          </div>
+          <!-- end intro content -->
 
-    </div> <!-- end -s-pagewrap -->
+          <a href="#about" class="intro-scrolldown smoothscroll">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"
+              />
+            </svg>
+          </a>
+        </section>
+        <!-- end s-intro -->
 
+        <!-- ### about
+            ================================================== -->
+        <section id="about" class="s-about target-section">
+          <div class="row about-info wide" data-animate-block>
+            <div class="column lg-6 md-12 about-info__pic-block">
+              <img
+                src="images/about-photo.jpg"
+                srcset="images/about-photo.jpg 1x, images/about-photo@2x.jpg 2x"
+                alt="about-photo"
+                class="about-info__pic"
+                data-animate-el
+              />
+            </div>
+
+            <div class="column lg-6 md-12">
+              <div class="about-info__text">
+                <h2 class="text-pretitle with-line" data-animate-el>About</h2>
+                <p class="attention-getter" data-animate-el>
+                  Hi, I’m Denky, a UI/UX designer and frontend developer with a
+                  strong passion for technology and creativity. I specialize in
+                  crafting visually appealing and functional designs while
+                  building responsive and user-friendly interfaces. With
+                  expertise in UI/UX design and frontend development, my focus
+                  is on delivering solutions that are not only aesthetically
+                  pleasing but also aligned with user needs.
+                </p>
+                <a
+                  href="https://wa.me/+6285781839145"
+                  class="btn btn--medium u-fullwidth"
+                  data-animate-el
+                  >Let's Collaborate</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- about-info -->
+
+          <div class="row about-expertise" data-animate-block>
+            <div class="column lg-12">
+              <h2 class="text-pretitle" data-animate-el>Expertise</h2>
+
+              <ul class="skills-list h1" data-animate-el>
+                <li>UI/UX Design</li>
+                <li>Website & App Design</li>
+                <li>Frontend Developer</li>
+                <li>Prototyping</li>
+                <li>Responsive Design</li>
+              </ul>
+            </div>
+          </div>
+          <!-- end about-expertise -->
+
+          <div class="row about-timelines" data-animate-block>
+            <div class="column lg-6 tab-12">
+              <h2 class="text-pretitle" data-animate-el>Experience</h2>
+
+              <div class="timeline" data-animate-el>
+                <div class="timeline__block">
+                  <div class="timeline__bullet"></div>
+                  <div class="timeline__header">
+                    <h4 class="timeline__title">Freelance Projects</h4>
+                    <h5 class="timeline__meta">Frontend Developer</h5>
+                    <p class="timeline__timeframe">2023</p>
+                  </div>
+                  <div class="timeline__desc">
+                    <p>
+                      I have worked on freelance projects, including developing
+                      an e-commerce website and creating responsive and
+                      interactive landing pages. These projects helped me build
+                      a solid foundation in frontend development and website
+                      responsiveness.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline__block">
+                  <div class="timeline__bullet"></div>
+                  <div class="timeline__header">
+                    <h4 class="timeline__title">Mobile App UI Design</h4>
+                    <h5 class="timeline__meta">UI/UX Designer</h5>
+                    <p class="timeline__timeframe">2024</p>
+                  </div>
+                  <div class="timeline__desc">
+                    <p>
+                      I designed user interfaces for mobile applications,
+                      focusing on creating intuitive and visually appealing
+                      layouts. This experience allowed me to explore the
+                      fundamentals of user experience design and improve my
+                      design skills.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- end timeline -->
+            </div>
+            <!-- end column -->
+
+            <div class="column lg-6 tab-12">
+              <h2 class="text-pretitle" data-animate-el>Education</h2>
+
+              <div class="timeline" data-animate-el>
+                <div class="timeline__block">
+                  <div class="timeline__bullet"></div>
+                  <div class="timeline__header">
+                    <h4 class="timeline__title">SMK Cinta Kasih Tzu Chi</h4>
+                    <h5 class="timeline__meta">
+                      Major in Software and Game Development (PPLG)
+                    </h5>
+                    <p class="timeline__timeframe">May 2026</p>
+                  </div>
+                  <div class="timeline__desc">
+                    <p>
+                      I am currently pursuing my education at SMK Cinta Kasih
+                      Tzu Chi, specializing in Software and Game Development
+                      (PPLG). During my time here, I have been developing skills
+                      in software engineering, user interface design, and game
+                      development to prepare for a career in the technology
+                      field.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline__block">
+                  <div class="timeline__bullet"></div>
+                  <div class="timeline__header">
+                    <h4 class="timeline__title">SMP Negeri 204 Jakarta</h4>
+                    <h5 class="timeline__meta">Junior High School Graduate</h5>
+                    <p class="timeline__timeframe">July 2023</p>
+                  </div>
+                  <div class="timeline__desc">
+                    <p>
+                      Before enrolling in SMK Cinta Kasih Tzu Chi, I completed
+                      my junior high school education at SMP Negeri 204 Jakarta.
+                      This institution provided me with a strong academic
+                      foundation that has greatly contributed to my personal and
+                      educational development.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- end timeline -->
+            </div>
+            <!-- end column -->
+          </div>
+          <!-- end about-timelines -->
+        </section>
+        <!-- end s-about -->
+
+        <!-- ### works
+            ================================================== -->
+        <section id="works" class="s-works target-section">
+          <div class="row works-portfolio">
+            <div class="column lg-12" data-animate-block>
+              <h2 class="text-pretitle" data-animate-el>Recent Works</h2>
+              <p class="h1" data-animate-el>
+                Here are some of my favorite projects I have done lately. Feel
+                free to check them out.
+              </p>
+
+              <ul class="folio-list row block-lg-one-half block-stack-on-1000">
+                <li class="folio-list__item column" data-animate-el>
+                  <a class="folio-list__item-link" href="#modal-01">
+                    <div class="folio-list__item-pic">
+                      <img
+                        src="images/portfolio/project-1.jpg"
+                        srcset="
+                          images/portfolio/project-1.jpg    1x,
+                          images/portfolio/project-1@2x.jpg 2x
+                        "
+                        alt="project-1"
+                      />
+                    </div>
+
+                    <div class="folio-list__item-text">
+                      <div class="folio-list__item-cat">Website</div>
+                      <div class="folio-list__item-title">
+                        Data Management Dashboard.
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <!--end folio-list__item -->
+
+                <li class="folio-list__item column" data-animate-el>
+                  <a class="folio-list__item-link" href="#modal-02">
+                    <div class="folio-list__item-pic">
+                      <img
+                        src="images/portfolio/project-2.jpg"
+                        srcset="
+                          images/portfolio/project-2.jpg    1x,
+                          images/portfolio/project-2@2x.jpg 2x
+                        "
+                        alt="project-2"
+                      />
+                    </div>
+
+                    <div class="folio-list__item-text">
+                      <div class="folio-list__item-cat">Website</div>
+                      <div class="folio-list__item-title">AsiaPride.</div>
+                    </div>
+                  </a>
+                </li>
+                <!--end folio-list__item -->
+
+                <li class="folio-list__item column" data-animate-el>
+                  <a class="folio-list__item-link" href="#modal-03">
+                    <div class="folio-list__item-pic">
+                      <img
+                        src="images/portfolio/project-3.jpg"
+                        srcset="
+                          images/portfolio/project-3.jpg    1x,
+                          images/portfolio/project-3@2x.jpg 2x
+                        "
+                        alt="project-3"
+                      />
+                    </div>
+
+                    <div class="folio-list__item-text">
+                      <div class="folio-list__item-cat">Mobile App</div>
+                      <div class="folio-list__item-title">
+                        Personal Financial Record.
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <!--end folio-list__item -->
+
+                <li class="folio-list__item column" data-animate-el>
+                  <a class="folio-list__item-link" href="#modal-04">
+                    <div class="folio-list__item-pic">
+                      <img
+                        src="images/portfolio/project-4.jpg"
+                        srcset="
+                          images/portfolio/project-4.jpg    1x,
+                          images/portfolio/project-4@2x.jpg 2x
+                        "
+                        alt="project-4"
+                      />
+                    </div>
+
+                    <div class="folio-list__item-text">
+                      <div class="folio-list__item-cat">Mobile App</div>
+                      <div class="folio-list__item-title">To-Do App.</div>
+                    </div>
+                  </a>
+                </li>
+                <!--end folio-list__item -->
+
+                <li class="folio-list__item column" data-animate-el>
+                  <a class="folio-list__item-link" href="#modal-05">
+                    <div class="folio-list__item-pic">
+                      <img
+                        src="images/portfolio/project-5.jpg"
+                        srcset="
+                          images/portfolio/project-5.jpg    1x,
+                          images/portfolio/project-5@2x.jpg 2x
+                        "
+                        alt="project-5"
+                      />
+                    </div>
+
+                    <div class="folio-list__item-text">
+                      <div class="folio-list__item-cat">
+                        Landing Page Design
+                      </div>
+                      <div class="folio-list__item-title">AbsenKita.</div>
+                    </div>
+                  </a>
+                </li>
+                <!--end folio-list__item -->
+
+                <li class="folio-list__item column" data-animate-el>
+                  <a class="folio-list__item-link" href="#modal-06">
+                    <div class="folio-list__item-pic">
+                      <img
+                        src="images/portfolio/project-6.jpg"
+                        srcset="
+                          images/portfolio/project-6.jpg    1x,
+                          images/portfolio/project-6@2x.jpg 2x
+                        "
+                        alt="project-6"
+                      />
+                    </div>
+
+                    <div class="folio-list__item-text">
+                      <div class="folio-list__item-cat">
+                        Landing Page Design
+                      </div>
+                      <div class="folio-list__item-title">
+                        Website Lolypoly.
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <!--end folio-list__item -->
+              </ul>
+              <!-- end folio-list -->
+            </div>
+            <!-- end column -->
+
+            <!-- Modal Templates Popup
+                    -------------------------------------------- -->
+            <div id="modal-01" hidden>
+              <div class="modal-popup">
+                <img
+                  src="images/portfolio/gallery/g-project-1.jpg"
+                  alt="project-1"
+                />
+
+                <div class="modal-popup__desc">
+                  <h5>Data Management Dashboard</h5>
+                  <p>
+                    Welcome to the Admin Dashboard! Here, you'll find easy
+                    access to User, Supplier, Stock, Incoming Goods, Outgoing
+                    Goods, and Borrow Goods. The Log In button is at the top
+                    right. In the center, there's a welcoming "Admin Dashboard"
+                    title with a "Welcome to Data Management" message. This
+                    dashboard helps you manage data efficiently with Laravel,
+                    Tailwind CSS, and Vue.js.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end modal -->
+
+            <div id="modal-02" hidden>
+              <div class="modal-popup">
+                <img
+                  src="images/portfolio/gallery/g-project-2.jpg"
+                  alt="project-2"
+                />
+
+                <div class="modal-popup__desc">
+                  <h5>AsiaPride</h5>
+                  <p>
+                    This website serves as a landing page for a Growtopia
+                    Private Server called
+                    <strong>"Asia The Uprising."</strong> The main section
+                    features a bold title with a glowing effect, accompanied by
+                    a short description highlighting exclusive gameplay features
+                    such as ghost catching, fishing, surgery, and Carnival
+                    events. Two prominent call-to-action buttons,
+                    <em>Play Now</em> and <em>Check Feature</em>, guide users to
+                    start playing or explore more details. The design uses a
+                    dark gradient background with neon blue accents, creating a
+                    modern and immersive gaming atmosphere, while a simple top
+                    navigation menu ensures easy access to Home, Feature, and
+                    Play sections.
+                  </p>
+                  <p>
+                    You can view the website here:
+                    <a
+                      href="https://asiapride100-lgtm.github.io/asiapride/"
+                      target="_blank"
+                      >https://asiapride100-lgtm.github.io/asiapride/</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end modal -->
+
+            <div id="modal-03" hidden>
+              <div class="modal-popup">
+                <img
+                  src="images/portfolio/gallery/g-project-3.jpg"
+                  alt="project-3"
+                />
+
+                <div class="modal-popup__desc">
+                  <h5>Personal Financial Record</h5>
+                  <p>
+                    The image above showcases a React Native-based financial
+                    application for tracking income and expenses. The interface
+                    displays the total balance, a financial trend graph, and a
+                    transaction list with options to add and edit entries. The
+                    design is simple, responsive, and user-friendly.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end modal -->
+
+            <div id="modal-04" hidden>
+              <div class="modal-popup">
+                <img
+                  src="images/portfolio/gallery/g-project-4.jpg"
+                  alt="project-4"
+                />
+
+                <div class="modal-popup__desc">
+                  <h5>To-Do App</h5>
+                  <p>
+                    The image above shows the interface of a mobile application
+                    built with React Native, featuring a task list. The app has
+                    a header that reads "Task Notes," an input field to add new
+                    tasks with a plus (+) icon, and a list of tasks displayed in
+                    cards containing the task name and a trash bin icon to
+                    delete them. The app is designed with a minimalist and
+                    responsive style, ideal for noting and managing daily tasks.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end modal -->
+
+            <div id="modal-05" hidden>
+              <div class="modal-popup">
+                <img
+                  src="images/portfolio/gallery/g-project-5.jpg"
+                  alt="project-5"
+                />
+
+                <div class="modal-popup__desc">
+                  <h5>AbsenKita</h5>
+                  <p>
+                    The image above shows the interface of the "AbsenKita" app,
+                    highlighting features such as online attendance, attendance
+                    from home, leave requests, as well as the login screen,
+                    email verification, and more. Created with Figma, the design
+                    uses a consistent orange color scheme, simple illustrations,
+                    and a user-friendly layout.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end modal -->
+
+            <div id="modal-06" hidden>
+              <div class="modal-popup">
+                <img
+                  src="images/portfolio/gallery/g-project-6.jpg"
+                  alt="project-6"
+                />
+
+                <div class="modal-popup__desc">
+                  <h5>Website Lolypoly</h5>
+                  <p>
+                    This website is a product landing page for a brand called
+                    <strong>LOLYPOLY</strong>. The main section prominently
+                    displays high-quality images of mobile devices, accompanied
+                    by a bold headline that reads
+                    <em>"Open, a Grand Soundscape"</em>, introducing their
+                    product "Eli Sport 1". A clear call-to-action button labeled
+                    <em>"Learn More"</em> invites users to explore further
+                    product details. The top navigation bar offers quick links
+                    to Support, Export, Recall, and Products, along with search
+                    and shopping cart icons for user convenience. The design is
+                    clean, minimalistic, and emphasizes a premium tech
+                    aesthetic.
+                  </p>
+                  <p>
+                    You can view the website here:
+                    <a
+                      href="https://asiapride100-lgtm.github.io/asiapride/"
+                      target="_blank"
+                      >https://asiapride100-lgtm.github.io/asiapride/</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end modal -->
+          </div>
+          <!-- end works-portfolio -->
+        </section>
+        <!-- end s-works -->
+
+        <!-- ### contact
+            ================================================== -->
+        <section id="contact" class="s-contact target-section">
+          <div class="row contact-top">
+            <div class="column lg-12">
+              <h2 class="text-pretitle">Get In Touch</h2>
+
+              <p class="h1">
+                I’d love to hear from you. Whether you have a question or just a
+                chat about frontend development, design, tech, or art — feel
+                free to message me.
+              </p>
+            </div>
+          </div>
+          <!-- end contact-top -->
+
+          <div class="row contact-bottom">
+            <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
+              <h3 class="text-pretitle">Reach me at</h3>
+              <p class="contact-links">
+                <a href="mailto:@denkysudarto07.com" class="mailtoui"
+                  >@denkysudarto07.com</a
+                >
+                <br />
+                <a href="tel:+6285781839145">+62 857 8183 9145</a>
+              </p>
+            </div>
+            <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
+              <h3 class="text-pretitle">Social</h3>
+              <ul class="contact-social">
+                <li>
+                  <a href="https://www.linkedin.com/in/denky-sudarto-95b183343/"
+                    >Linkedin</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/den_19.77/">Instagram</a>
+                </li>
+                <li><a href="https://github.com/Dendar07/">Github</a></li>
+              </ul>
+            </div>
+            <div class="column lg-4 md-12 contact-block">
+              <a
+                href="mailto:@denkysudarto07.com"
+                class="mailtoui btn btn--medium u-fullwidth contact-btn"
+                >Say Hello.</a
+              >
+            </div>
+          </div>
+          <!-- end contact-bottom -->
+        </section>
+        <!-- end contact -->
+      </main>
+      <!-- end s-content -->
+
+      <!-- ## footer
+        ================================================== -->
+      <footer class="s-footer">
+        <div class="row">
+          <div class="column ss-copyright">
+            <span>© Copyright Denky 2024</span>
+            <span
+              >Design by
+              <a href="#intro" class="smoothscroll">Denky Sudarto</a></span
+            >
+          </div>
+
+          <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              >
+                <path
+                  d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+      <!-- end s-footer -->
+    </div>
+    <!-- end -s-pagewrap -->
 
     <!-- Java Script
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-
-</body>
+  </body>
 </html>
