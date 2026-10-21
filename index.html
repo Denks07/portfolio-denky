@@ -1,1253 +1,580 @@
 <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="description" content="Portofolio Denky Sudarto — mahasiswa Teknik Informatika, frontend developer, dan UI/UX designer.">
+  <meta name="author" content="Denky Sudarto">
+  <title>Denky Sudarto — Portfolio</title>
 
-<html class="no-js ss-preload" lang="id">
+  <!-- Fast, readable typography with a system fallback if the font CDN is unavailable -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <head>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f2eb;
+      --paper-soft: #fbfaf7;
+      --ink: #171717;
+      --muted: #77766f;
+      --line: #dedbd3;
+      --blue: #315efb;
+      --blue-soft: #e8edff;
+      --max: 1160px;
+      --mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
+      --sans: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+    }
 
-    <!--- basic page needs
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image:
+        linear-gradient(to right, rgba(23,23,23,.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(23,23,23,.025) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    ::selection { background: var(--blue); color: white; }
 
-    ================================================== -->
+    .container { width: min(var(--max), calc(100% - 64px)); margin-inline: auto; }
+    .mono {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .muted { color: var(--muted); }
+    .blue { color: var(--blue); }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--muted); }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    .section { padding-block: 104px; }
+    .section-heading {
+      display: flex; justify-content: space-between; align-items: end; gap: 24px;
+      padding-bottom: 24px; border-bottom: 1px solid var(--line); margin-bottom: 30px;
+    }
+    .section-heading h2 { font-size: clamp(28px, 4vw, 44px); letter-spacing: -.055em; line-height: 1.05; margin: 12px 0 0; }
+    .section-heading p { max-width: 340px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
 
-    <meta charset="utf-8" />
+    /* Navigation */
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(245,242,235,.88); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(222,219,211,.8);
+    }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-size: 14px; font-weight: 800; letter-spacing: -.05em; }
+    .brand span { color: var(--blue); }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 38px); padding: 0; margin: 0; list-style: none; }
+    .nav-links a { color: #55544f; font-size: 12px; transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--blue); }
+    .nav-contact { border: 1px solid var(--ink); padding: 10px 14px; border-radius: 999px; color: var(--ink) !important; }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 9px 13px; cursor: pointer; }
 
-    <title>Denky Sudarto — Portofolio</title>
+    /* Hero */
+    .hero { padding-top: clamp(68px, 10vw, 126px); padding-bottom: 70px; }
+    .hero-top { display: grid; grid-template-columns: 1fr minmax(160px, 250px); align-items: end; gap: 30px; }
+    .hero h1 {
+      max-width: 850px; margin: 22px 0 20px;
+      font-size: clamp(44px, 7.2vw, 88px); line-height: .99;
+      font-weight: 800; letter-spacing: -.075em;
+    }
+    .hero h1 .outline { color: transparent; -webkit-text-stroke: 1.4px var(--ink); }
+    .hero-intro { max-width: 240px; justify-self: end; margin-bottom: 8px; }
+    .hero-intro p { margin: 12px 0 0; font-size: 13px; line-height: 1.9; color: #5e5d57; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
+    .tag {
+      display: inline-flex; align-items: center; border: 1px solid #d3d0c8;
+      border-radius: 999px; padding: 7px 11px; color: #5e5d57;
+      font: 9px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+    }
 
-    <meta name="description" content="Portofolio Denky Sudarto — Mahasiswa Teknik Informatika dan Web Programmer." />
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 38px auto 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #f5f2eb;
+}
 
-    <meta name="author" content="Denky Sudarto" />
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 30%;
+  border: 0;
+  background: #f5f2eb;
+}
+    .image-corner { position: absolute; width: 20px; height: 20px; border-color: white; opacity: .8; }
+    .image-corner.tl { top: 12px; left: 12px; border-top: 1px solid; border-left: 1px solid; }
+    .image-corner.br { bottom: 12px; right: 12px; border-bottom: 1px solid; border-right: 1px solid; }
+    .hero-caption { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: start; gap: 20px; padding-top: 18px; }
+    .hero-caption p { margin: 0; }
+    .hero-caption .arrow { font-size: 25px; line-height: 1; }
+    .hero-caption .caption-main { max-width: 250px; color: var(--muted); }
+    .hero-caption .caption-end { justify-self: end; text-align: right; color: var(--muted); }
 
+    /* About */
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(38px, 8vw, 110px); align-items: start; }
+    .about-aside { position: sticky; top: 110px; }
+    .about-aside h2 { margin: 14px 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.05; letter-spacing: -.06em; }
+    .about-aside p { color: var(--muted); font-size: 13px; line-height: 1.9; max-width: 300px; }
+    .text-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 14px; padding-bottom: 7px; border-bottom: 1px solid var(--ink); font-size: 12px; font-weight: 700; }
+    .text-link span { color: var(--blue); font-size: 18px; transition: transform .2s; }
+    .text-link:hover span { transform: translate(3px, -3px); }
+    .about-copy { font-size: clamp(17px, 2vw, 22px); line-height: 1.75; letter-spacing: -.025em; margin: 0 0 30px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 24px 0 0; list-style: none; }
+    .skill-list li { padding: 10px 13px; border: 1px solid var(--line); background: rgba(255,255,255,.35); font-size: 11px; }
 
+    /* Projects */
+    .projects { background: var(--paper-soft); border-block: 1px solid var(--line); }
+    .project-list { display: grid; gap: 46px; }
+    .project { padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+    .project-meta {
+      display: grid; grid-template-columns: 90px minmax(170px, .8fr) minmax(180px, 1fr) 140px;
+      align-items: start; gap: 24px; margin-bottom: 20px;
+    }
+    .project-year, .project-type { color: var(--muted); }
+    .project-title { margin: -3px 0 0; font-size: clamp(20px, 2.5vw, 29px); line-height: 1.2; letter-spacing: -.055em; }
+    .project-description { margin: 0; max-width: 350px; color: #66655f; font-size: 12px; line-height: 1.8; }
+    .project-type { text-align: right; }
+    .project-visual {
+      position: relative; display: block; overflow: hidden; border-radius: 4px;
+      background: #e6e3dc; border: 1px solid var(--line);
+    }
+    .project-visual img {
+      width: 100%; aspect-ratio: 2.05 / 1; object-fit: cover;
+      transition: transform .55s cubic-bezier(.2,.7,.2,1); background: #e6e3dc;
+    }
+    .project-visual:hover img { transform: scale(1.025); }
+    .project-visual::after { content: "↗"; position: absolute; right: 18px; bottom: 18px; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--paper); color: var(--ink); font-size: 19px; opacity: 0; transform: translateY(5px); transition: .2s ease; }
+    .project-visual:hover::after, .project-visual:focus-visible::after { opacity: 1; transform: translateY(0); }
+    .project-bottom { display: flex; justify-content: space-between; gap: 18px; align-items: center; margin-top: 15px; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tech-tags span { color: var(--muted); font: 9px var(--mono); text-transform: uppercase; letter-spacing: .07em; }
+    .project-link { color: var(--blue); font-size: 11px; font-weight: 700; white-space: nowrap; }
 
-    <!-- mobile specific metas
+    /* Experience / education */
+    .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(35px, 7vw, 90px); }
+    .timeline-column h3 { font-size: 19px; letter-spacing: -.04em; margin: 0 0 22px; }
+    .timeline-item { display: grid; grid-template-columns: 14px 1fr; gap: 15px; padding: 21px 0; border-top: 1px solid var(--line); }
+    .timeline-dot { width: 7px; height: 7px; margin-top: 7px; border-radius: 50%; background: var(--blue); }
+    .timeline-item h4 { margin: 0; font-size: 14px; line-height: 1.5; }
+    .timeline-meta { margin: 5px 0; color: var(--muted); font-size: 11px; }
+    .timeline-date { color: var(--muted); }
+    .timeline-item p:last-child { margin: 10px 0 0; color: #62615b; font-size: 12px; line-height: 1.8; }
 
-    ================================================== -->
+    /* Contact / footer */
+    .contact-panel { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; padding: clamp(28px, 5vw, 60px); background: #eae7df; border: 1px solid var(--line); }
+    .contact-panel h2 { max-width: 560px; margin: 14px 0; font-size: clamp(34px, 5vw, 60px); line-height: 1.04; letter-spacing: -.07em; }
+    .contact-panel p { max-width: 410px; color: #66655f; font-size: 13px; line-height: 1.9; }
+    .contact-details { display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+    .contact-row { display: flex; justify-content: space-between; gap: 18px; padding-bottom: 13px; border-bottom: 1px solid #d4d0c7; font-size: 12px; }
+    .contact-row span:first-child { color: var(--muted); }
+    .contact-row a { text-align: right; overflow-wrap: anywhere; }
+    .contact-row a:hover { color: var(--blue); }
+    .footer { padding-block: 25px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; color: var(--muted); }
+    .footer p { margin: 0; }
+    .back-top { color: var(--ink); }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    /* Reveal is intentionally subtle and degrades gracefully without JS */
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .65s ease, transform .65s ease; }
+    .js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 800px) {
+      .container { width: min(100% - 40px, var(--max)); }
+      .section { padding-block: 76px; }
+      .hero-top { grid-template-columns: 1fr; gap: 8px; }
+      .hero-intro { justify-self: start; max-width: 420px; }
+      .hero h1 { font-size: clamp(42px, 10vw, 72px); }
+      .hero-caption { grid-template-columns: 30px 1fr; }
+      .hero-caption .caption-end { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 26px; }
+      .about-aside { position: static; }
+      .about-aside p { max-width: 500px; }
+      .project-meta { grid-template-columns: 60px 1fr; gap: 10px 18px; }
+      .project-title { grid-column: 2; grid-row: 1; }
+      .project-year { grid-column: 1; grid-row: 1; }
+      .project-description { grid-column: 2; }
+      .project-type { grid-column: 2; text-align: left; }
+      .timeline-grid { gap: 35px; }
+      .contact-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .container { width: calc(100% - 32px); }
+      .nav { min-height: 62px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links {
+        display: none; position: absolute; top: 61px; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0; padding: 8px 16px 16px;
+        background: var(--paper); border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li a { display: block; padding: 13px 4px; }
+      .nav-contact { border: 0; padding: 13px 4px; }
+      .hero { padding-top: 64px; padding-bottom: 45px; }
+      .hero h1 { font-size: clamp(38px, 11vw, 58px); }
+      .hero-image { height: 260px; }
+        .hero-image-wrap {
+    max-width: 100%;
+    margin: 24px auto 0;
+  }
+      .hero-caption { padding-top: 14px; }
+      .section { padding-block: 62px; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 16px; }
+      .project-list { gap: 32px; }
+      .project-visual img { aspect-ratio: 1.25 / 1; }
+      .project-bottom { align-items: flex-start; flex-direction: column; }
+      .timeline-grid { grid-template-columns: 1fr; }
+      .contact-panel { padding: 24px 20px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body id="top">
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigasi utama">
+      <a class="brand" href="#top" aria-label="Denky, kembali ke atas">Denky<span>.</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#projects">Proyek</a></li>
+        <li><a href="#experience">Perjalanan</a></li>
+        <li><a class="nav-contact" href="#contact">Hubungi saya ↗</a></li>
+      </ul>
+    </nav>
+  </header>
 
-
-    <!-- CSS
-
-    ================================================== -->
-
-    <link rel="stylesheet" href="css/vendor.css" />
-
-    <link rel="stylesheet" href="css/styles.css" />
-
-
-
-    <!-- favicons
-
-    ================================================== -->
-
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-
-    <link rel="manifest" href="site.webmanifest" />
-
-  </head>
-
-
-
-  <body id="top">
-
-    <!-- # preloader
-
-    ================================================== -->
-
-    <div id="preloader">
-
-      <div id="loader"></div>
-
-    </div>
-
-
-
-    <!-- # page wrap
-
-    ================================================== -->
-
-    <div class="s-pagewrap">
-
-      <div class="circles">
-
-        <span></span>
-
-        <span></span>
-
-        <span></span>
-
-        <span></span>
-
-        <span></span>
-
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow mono">Portofolio · Jakarta, Indonesia</div>
+          <h1>WEB DEVELOPER<span class="blue">.</span><br><span class="outline">& UI/UX DESIGNER</span></h1>
+          <div class="tag-row" aria-label="Fokus keahlian">
+            <span class="tag">Frontend Development</span>
+            <span class="tag">UI/UX Design</span>
+            <span class="tag">Web Experience</span>
+          </div>
+        </div>
+        <aside class="hero-intro">          <span class="mono muted">01 / Perkenalan</span>
+          <p>Membangun pengalaman digital yang rapi, responsif, dan mudah digunakan — dari ide hingga antarmuka yang siap dipakai.</p>
+        </aside>
       </div>
 
+      <div class="hero-image-wrap reveal">
+        <!-- Keep the existing image path from your project. Replace it with your preferred portrait if needed. -->
+        <img class="hero-image" src="images/about-photo.jpg" alt="Foto Denky Sudarto" fetchpriority="high" decoding="async" width="1600" height="800"
+             onerror="this.onerror=null;this.src='images/about-photo@2x.jpg';">
+        <span class="image-corner tl" aria-hidden="true"></span>
+        <span class="image-corner br" aria-hidden="true"></span>
+      </div>
+      <div class="hero-caption">
+        <p class="mono caption-main">Denky Sudarto</p>
+        <p class="mono caption-main">Berfokus pada frontend, desain antarmuka, dan solusi digital yang berguna.</p>
+        <p class="mono caption-end">Design & code by Denky</p>
+      </div>
+    </section>
 
+    <section class="section container" id="about">
+      <div class="about-grid">
+        <div class="about-aside reveal">
+          <div class="eyebrow mono">02 / Tentang saya</div>
+          <h2>Desain yang jelas.<br>Teknologi yang berguna.</h2>
+          <p>Saya tertarik pada perpaduan antara desain, teknologi, dan pemecahan masalah.</p>
+          <a class="text-link" href="https://wa.me/6285781839145" target="_blank" rel="noreferrer">Mari berdiskusi <span>↗</span></a>
+        </div>
+        <div class="reveal">
+          <p class="about-copy">Halo, saya Denky — mahasiswa Teknik Informatika yang berfokus pada frontend development dan UI/UX design. Saya senang mengubah kebutuhan pengguna menjadi antarmuka yang fungsional, responsif, dan nyaman digunakan.</p>
+          <p class="muted" style="font-size:13px;line-height:1.9;margin:0">Saya terus mengembangkan kemampuan dalam membangun website, mengintegrasikan layanan, serta menyusun pengalaman pengguna yang sederhana dan terstruktur.</p>
+          <ul class="skill-list" aria-label="Keahlian">
+            <li>HTML & CSS</li><li>JavaScript</li><li>React.js</li><li>Vite</li>
+            <li>Tailwind CSS</li><li>UI/UX Design</li><li>Responsive Design</li><li>Git & GitHub</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <!-- ## site header&#x20;
-
-        ================================================== -->
-
-      <header class="s-header">
-
-        <div class="header-mobile">
-
-          <span class="mobile-home-link"><a href="index.html">Denky.</a></span>
-
-          <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
-
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow mono">03 / Karya pilihan</div>
+            <h2>Proyek yang pernah saya kerjakan.</h2>
+          </div>
+          <p>Beberapa eksplorasi website dan aplikasi. Pilih proyek untuk melihat detail atau membuka demo yang tersedia.</p>
         </div>
 
-
-
-        <div class="row wide main-nav-wrap">
-
-          <nav class="column lg-12 main-nav">
-
-            <ul>
-
-              <li><a href="index.html" class="home-link">Denky.</a></li>
-
-              <li class="current">
-
-                <a href="#intro" class="smoothscroll">Beranda</a>
-
-              </li>
-
-              <li><a href="#about" class="smoothscroll">Tentang Saya</a></li>
-
-              <li><a href="#works" class="smoothscroll">Proyek</a></li>
-
-              <li><a href="#contact" class="smoothscroll">Kontak</a></li>
-
-            </ul>
-
-          </nav>
-
-        </div>
-
-      </header>
-
-      <!-- end s-header -->
-
-
-
-      <!-- ## main content
-
-        ==================================================- -->
-
-      <main class="s-content">
-
-        <!-- ### intro
-
-            ================================================== -->
-
-        <section id="intro" class="s-intro target-section">
-
-          <div class="row intro-content wide">
-
-            <div class="column">
-
-              <div class="text-pretitle with-line">Halo!</div>
-
-              <h1 class="text-huge-title">
-
-                Hi, Saya Denky<br />
-
-                Web Programmer & UI/UX Designer<br />
-
-                dari Jakarta
-
-              </h1>
-
+        <div class="project-list">
+          <article class="project reveal">
+            <div class="project-meta">
+              <span class="project-year mono">2026</span>
+              <h3 class="project-title">Data Management Dashboard</h3>
+              <p class="project-description">Dashboard pengelolaan data untuk membantu admin mengatur pengguna, pemasok, stok, barang masuk, dan barang keluar secara lebih terstruktur.</p>
+              <span class="project-type mono">Dashboard / Web App</span>
             </div>
-
-
-
-            <ul class="intro-social">
-
-              <li>
-
-                <a href="https://www.linkedin.com/in/denky-sudarto-95b183343/"
-
-                  >Linkedin</a
-
-                >
-
-              </li>
-
-              <li>
-
-                <a href="https://www.instagram.com/den_19.77/">Instagram</a>
-
-              </li>
-
-            </ul>
-
-          </div>
-
-          <!-- end intro content -->
-
-
-
-          <a href="#about" class="intro-scrolldown smoothscroll">
-
-            <svg
-
-              width="24"
-
-              height="24"
-
-              viewBox="0 0 24 24"
-
-              xmlns="http://www.w3.org/2000/svg"
-
-              fill-rule="evenodd"
-
-              clip-rule="evenodd"
-
-            >
-
-              <path
-
-                d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"
-
-              />
-
-            </svg>
-
-          </a>
-
-        </section>
-
-        <!-- end s-intro -->
-
-
-
-        <!-- ### about
-
-            ================================================== -->
-
-        <section id="about" class="s-about target-section">
-
-          <div class="row about-info wide" data-animate-block>
-
-            <div class="column lg-6 md-12 about-info__pic-block">
-
-              <img
-
-                src="images/about-photo.jpg"
-
-                srcset="images/about-photo.jpg 1x, images/about-photo@2x.jpg 2x"
-
-                alt="about-photo"
-
-                class="about-info__pic"
-
-                data-animate-el
-
-              />
-
-            </div>
-
-
-
-            <div class="column lg-6 md-12">
-
-              <div class="about-info__text">
-
-                <h2 class="text-pretitle with-line" data-animate-el>Tentang Saya</h2>
-
-                <p class="attention-getter" data-animate-el>
-
-                  Hi, I’m Denky, a UI/UX designer and frontend developer with a
-
-                  strong passion for technology and creativity. I specialize in
-
-                  crafting visually appealing and functional designs while
-
-                  building responsive and user-friendly interfaces. With
-
-                  expertise in UI/UX design and frontend development, my focus
-
-                  is on delivering solutions that are not only aesthetically
-
-                  pleasing but also aligned with user needs.
-
-                </p>
-
-                <a
-
-                  href="https://wa.me/+6285781839145"
-
-                  class="btn btn--medium u-fullwidth"
-
-                  data-animate-el
-
-                  >Hubungi Saya</a
-
-                >
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <!-- about-info -->
-
-
-
-          <div class="row about-expertise" data-animate-block>
-
-            <div class="column lg-12">
-
-              <h2 class="text-pretitle" data-animate-el>Keahlian</h2>
-
-
-
-              <ul class="skills-list h1" data-animate-el>
-
-                <li>UI/UX Design</li>
-
-                <li>Website & App Design</li>
-
-                <li>Frontend Developer</li>
-
-                <li>Prototyping</li>
-
-                <li>Responsive Design</li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-          <!-- end about-expertise -->
-
-
-
-          <div class="row about-timelines" data-animate-block>
-
-            <div class="column lg-6 tab-12">
-
-              <h2 class="text-pretitle" data-animate-el>Pengalaman Kerja</h2>
-
-
-
-              <div class="timeline" data-animate-el>
-                <div class="timeline__block">
-                  <div class="timeline__bullet"></div>
-                  <div class="timeline__header">
-                    <h4 class="timeline__title">Kurir / Delivery Partner — Shopee Express (SPX)</h4>
-                    <h5 class="timeline__meta">Shopee Express (SPX)</h5>
-                    <p class="timeline__timeframe">Februari 2026 – Sekarang</p>
-                  </div>
-                  <div class="timeline__desc">
-                    <p>Mengambil dan mengantarkan paket sesuai area pengiriman serta memperbarui status pengiriman melalui aplikasi.</p>
-                  </div>
-                </div>
-
-                <div class="timeline__block">
-                  <div class="timeline__bullet"></div>
-                  <div class="timeline__header">
-                    <h4 class="timeline__title">Freelance Frontend Developer</h4>
-                    <h5 class="timeline__meta">Freelance</h5>
-                    <p class="timeline__timeframe">Februari 2026 – Sekarang</p>
-                  </div>
-                  <div class="timeline__desc">
-                    <p>Mengembangkan aplikasi internal untuk membantu UMKM mengelola proses kerja secara lebih terstruktur. Menerjemahkan kebutuhan pengguna menjadi fitur dan antarmuka yang mudah digunakan.</p>
-                  </div>
-                </div>
-
-                <div class="timeline__block">
-                  <div class="timeline__bullet"></div>
-                  <div class="timeline__header">
-                    <h4 class="timeline__title">Frontend Developer</h4>
-                    <h5 class="timeline__meta">PT Yamisok — Kontrak</h5>
-                    <p class="timeline__timeframe">Januari 2025 – Maret 2025</p>
-                  </div>
-                  <div class="timeline__desc">
-                    <p>Mengembangkan landing page dan company profile menggunakan React.js dan Tailwind CSS. Membuat tampilan responsif dan menyesuaikan fitur berdasarkan kebutuhan klien.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- end timeline -->
-
-            </div>
-
-            <!-- end column -->
-
-
-
-            <div class="column lg-6 tab-12">
-
-              <h2 class="text-pretitle" data-animate-el>Pendidikan</h2>
-
-
-
-              <div class="timeline" data-animate-el>
-                <div class="timeline__block">
-                  <div class="timeline__bullet"></div>
-                  <div class="timeline__header">
-                    <h4 class="timeline__title">Universitas Tarumanagara</h4>
-                    <h5 class="timeline__meta">S1 Teknik Informatika</h5>
-                    <p class="timeline__timeframe">Agustus 2026 – Sekarang</p>
-                  </div>
-                  <div class="timeline__desc">
-                    <p>Saat ini menempuh pendidikan S1 Teknik Informatika dengan fokus pada teknologi, pemrograman, dan pengembangan aplikasi.</p>
-                  </div>
-                </div>
-
-                <div class="timeline__block">
-                  <div class="timeline__bullet"></div>
-                  <div class="timeline__header">
-                    <h4 class="timeline__title">SMK Cinta Kasih Tzu Chi</h4>
-                    <h5 class="timeline__meta">Pengembangan Perangkat Lunak dan Gim (PPLG)</h5>
-                    <p class="timeline__timeframe">Juli 2023 – April 2026</p>
-                  </div>
-                  <div class="timeline__desc">
-                    <p>Menempuh pendidikan di bidang Pengembangan Perangkat Lunak dan Gim (PPLG) dengan mempelajari pemrograman, pengembangan website, aplikasi, dan dasar UI/UX.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- end timeline -->
-
-            </div>
-
-            <!-- end column -->
-
-          </div>
-
-          <!-- end about-timelines -->
-
-        </section>
-
-        <!-- end s-about -->
-
-
-
-        <!-- ### works
-
-            ================================================== -->
-
-        <section id="works" class="s-works target-section">
-
-          <div class="row works-portfolio">
-
-            <div class="column lg-12" data-animate-block>
-
-              <h2 class="text-pretitle" data-animate-el>Recent Works</h2>
-
-              <p class="h1" data-animate-el>
-
-                Here are some of my favorite projects I have done lately. Feel
-
-                free to check them out.
-
-              </p>
-
-
-
-              <ul class="folio-list row block-lg-one-half block-stack-on-1000">
-
-                <li class="folio-list__item column" data-animate-el>
-
-                  <a class="folio-list__item-link" href="#modal-01">
-
-                    <div class="folio-list__item-pic">
-
-                      <img
-
-                        src="images/portfolio/project-1.jpg"
-
-                        srcset="
-
-                          images/portfolio/project-1.jpg    1x,
-
-                          images/portfolio/project-1@2x.jpg 2x
-
-                        "
-
-                        alt="project-1"
-
-                      />
-
-                    </div>
-
-
-
-                    <div class="folio-list__item-text">
-
-                      <div class="folio-list__item-cat">Website</div>
-
-                      <div class="folio-list__item-title">
-
-                        Data Management Dashboard.
-
-                      </div>
-
-                    </div>
-
-                  </a>
-
-                </li>
-
-                <!--end folio-list__item -->
-
-
-
-                <li class="folio-list__item column" data-animate-el>
-
-                  <a class="folio-list__item-link" href="#modal-02">
-
-                    <div class="folio-list__item-pic">
-
-                      <img
-
-                        src="images/portfolio/project-2.jpg"
-
-                        srcset="
-
-                          images/portfolio/project-2.jpg    1x,
-
-                          images/portfolio/project-2@2x.jpg 2x
-
-                        "
-
-                        alt="project-2"
-
-                      />
-
-                    </div>
-
-
-
-                    <div class="folio-list__item-text">
-
-                      <div class="folio-list__item-cat">Website</div>
-
-                      <div class="folio-list__item-title">AsiaPride.</div>
-
-                    </div>
-
-                  </a>
-
-                </li>
-
-                <!--end folio-list__item -->
-
-
-
-                <li class="folio-list__item column" data-animate-el>
-
-                  <a class="folio-list__item-link" href="#modal-03">
-
-                    <div class="folio-list__item-pic">
-
-                      <img
-
-                        src="images/portfolio/project-3.jpg"
-
-                        srcset="
-
-                          images/portfolio/project-3.jpg    1x,
-
-                          images/portfolio/project-3@2x.jpg 2x
-
-                        "
-
-                        alt="project-3"
-
-                      />
-
-                    </div>
-
-
-
-                    <div class="folio-list__item-text">
-
-                      <div class="folio-list__item-cat">Mobile App</div>
-
-                      <div class="folio-list__item-title">
-
-                        Personal Financial Record.
-
-                      </div>
-
-                    </div>
-
-                  </a>
-
-                </li>
-
-                <!--end folio-list__item -->
-
-
-
-                <li class="folio-list__item column" data-animate-el>
-
-                  <a class="folio-list__item-link" href="#modal-04">
-
-                    <div class="folio-list__item-pic">
-
-                      <img
-
-                        src="images/portfolio/project-4.jpg"
-
-                        srcset="
-
-                          images/portfolio/project-4.jpg    1x,
-
-                          images/portfolio/project-4@2x.jpg 2x
-
-                        "
-
-                        alt="project-4"
-
-                      />
-
-                    </div>
-
-
-
-                    <div class="folio-list__item-text">
-
-                      <div class="folio-list__item-cat">Mobile App</div>
-
-                      <div class="folio-list__item-title">To-Do App.</div>
-
-                    </div>
-
-                  </a>
-
-                </li>
-
-                <!--end folio-list__item -->
-
-
-
-                <li class="folio-list__item column" data-animate-el>
-
-                  <a class="folio-list__item-link" href="#modal-05">
-
-                    <div class="folio-list__item-pic">
-
-                      <img
-
-                        src="images/portfolio/project-5.jpg"
-
-                        srcset="
-
-                          images/portfolio/project-5.jpg    1x,
-
-                          images/portfolio/project-5@2x.jpg 2x
-
-                        "
-
-                        alt="project-5"
-
-                      />
-
-                    </div>
-
-
-
-                    <div class="folio-list__item-text">
-
-                      <div class="folio-list__item-cat">
-
-                        Landing Page Design
-
-                      </div>
-
-                      <div class="folio-list__item-title">Absen.</div>
-
-                    </div>
-
-                  </a>
-
-                </li>
-
-                <!--end folio-list__item -->
-
-
-
-                <li class="folio-list__item column" data-animate-el>
-
-                  <a class="folio-list__item-link" href="#modal-06">
-
-                    <div class="folio-list__item-pic">
-
-                      <img
-
-                        src="images/portfolio/project-6.jpg"
-
-                        srcset="
-
-                          images/portfolio/project-6.jpg    1x,
-
-                          images/portfolio/project-6@2x.jpg 2x
-
-                        "
-
-                        alt="project-6"
-
-                      />
-
-                    </div>
-
-
-
-                    <div class="folio-list__item-text">
-
-                      <div class="folio-list__item-cat">
-
-                        Landing Page Design
-
-                      </div>
-
-                      <div class="folio#">
-
-                      </div>
-
-                    </div>
-
-                  </a>
-
-                </li>
-
-                <!--end folio-list__item -->
-
-              </ul>
-
-              <!-- end folio-list -->
-
-            </div>
-
-            <!-- end column -->
-
-
-
-             <!-- Modal Templates Popup-------------------------------------------- -->
-
-            <div id="modal-01" class="hidden">
-
-              <div class="modal-popup">
-
-                <img
-
-                  src="images/portfolio/gallery/g-project-1.jpg"
-
-                  alt="project-1"/>
-
-
-
-                <div class="modal-popup__desc">
-
-                  <h5>Data Management Dashboard</h5>
-
-                  <p>
-
-                    Welcome to the Admin Dashboard! Here, you'll find easy
-
-                    access to User, Supplier, Stock, Incoming Goods, Outgoing
-
-                    Goods, and Borrow Goods. The Log In button is at the top
-
-                    right. In the center, there's a welcoming "Admin Dashboard"
-
-                    title with a "Welcome to Data Management" message. This
-
-                    dashboard helps you manage data efficiently with Laravel,
-
-                    Tailwind CSS, and Vue.js.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- end modal -->
-
-
-
-            <div id="modal-02" hidden>
-
-              <div class="modal-popup">
-
-                <img
-
-                  src="images/portfolio/gallery/g-project-2.jpg"
-
-                  alt="project-2"
-
-                />
-
-
-
-                <div class="modal-popup__desc">
-
-                  <h5>AsiaPride</h5>
-
-                  <p>
-
-                    This website serves as a landing page for a Growtopia
-
-                    Private Server called
-
-                    <strong>"Asia The Uprising."</strong> The main section
-
-                    features a bold title with a glowing effect, accompanied by
-
-                    a short description highlighting exclusive gameplay features
-
-                    such as ghost catching, fishing, surgery, and Carnival
-
-                    events. Two prominent call-to-action buttons,
-
-                    <em>Play Now</em> and <em>Check Feature</em>, guide users to
-
-                    start playing or explore more details. The design uses a
-
-                    dark gradient background with neon blue accents, creating a
-
-                    modern and immersive gaming atmosphere, while a simple top
-
-                    navigation menu ensures easy access to Home, Feature, and
-
-                    Play sections.
-
-                  </p>
-
-                  <p>
-
-                    You can view the website here:
-
-                    <a
-
-                      href="https://asiapride100-lgtm.github.io/asiapride/"
-
-                      target="_blank"
-
-                      >https://asiapride100-lgtm.github.io/asiapride/</a
-
-                    >
-
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- end modal -->
-
-
-
-            <div id="modal-03" hidden>
-
-              <div class="modal-popup">
-
-                <img
-
-                  src="images/portfolio/gallery/g-project-3.jpg"
-
-                  alt="project-3"
-
-                />
-
-
-
-                <div class="modal-popup__desc">
-
-                  <h5>Personal Financial Record</h5>
-
-                  <p>
-
-                    The image above showcases a React Native-based financial
-
-                    application for tracking income and expenses. The interface
-
-                    displays the total balance, a financial trend graph, and a
-
-                    transaction list with options to add and edit entries. The
-
-                    design is simple, responsive, and user-friendly.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- end modal -->
-
-
-
-            <div id="modal-04" hidden>
-
-              <div class="modal-popup">
-
-                <img
-
-                  src="images/portfolio/gallery/g-project-4.jpg"
-
-                  alt="project-4"
-
-                />
-
-
-
-                <div class="modal-popup__desc">
-
-                  <h5>To-Do App</h5>
-
-                  <p>
-
-                    The image above shows the interface of a mobile application
-
-                    built with React Native, featuring a task list. The app has
-
-                    a header that reads "Task Notes," an input field to add new
-
-                    tasks with a plus (+) icon, and a list of tasks displayed in
-
-                    cards containing the task name and a trash bin icon to
-
-                    delete them. The app is designed with a minimalist and
-
-                    responsive style, ideal for noting and managing daily tasks.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- end modal -->
-
-
-
-            <div id="modal-05" hidden>
-
-              <div class="modal-popup">
-
-                <img
-
-                  src="images/portfolio/gallery/g-project-5.jpg"
-
-                  alt="project-5"
-
-                />
-
-
-
-                <div class="modal-popup__desc">
-
-                  <h5>Absen</h5>
-
-                  <p>
-
-                    The image above shows the interface of the "Absen" app,
-
-                    highlighting features such as online attendance, attendance
-
-                    from home, leave requests, as well as the login screen,
-
-                    email verification, and more. Created with Figma, the design
-
-                    uses a consistent orange color scheme, simple illustrations,
-
-                    and a user-friendly layout.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- end modal -->
-
-
-
-            <div id="modal-06" hidden>
-
-              <div class="modal-popup">
-
-                <img
-
-                  src="images/portfolio/gallery/g-project-6.jpg"
-
-                  alt="project-6"
-
-                />
-
-
-
-                <div class="modal-#/h5>
-
-                  *<*&#x70;>
-
-                    This website is a product landing page for #/strong>. The main section prominently
-
-                    displays high-quality images of mobile devices, accompanied
-
-                    by a bold headline that reads
-
-                    *<*&#x65;m>"Open, a Grand Soundscap&#x65;*"</em*>, introducing their
-
-                    product "Eli Sport 1". A clear call-to-action button labeled
-
-                    <em>"Learn More"</em> invites users to explore further
-
-                    product details. The top navigation bar offers quick links
-
-                    to Support, Export, Recall, and Products, along with search
-
-                    and shopping cart icons for user convenience. The design is
-
-                    clean, minimalistic, and emphasizes a premium tech
-
-                    aesthetic.
-
-                  </p>
-
-                  <p>
-
-                    You can view the website here:
-
-                    <a
-
-                      href="#"
-
-                      target="_blank"
-
-                      >#</a
-
-                    >
-
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- end modal -->
-
-          </div>
-
-          <!-- end works-portfolio -->
-
-        </section>
-
-        <!-- end s-works -->
-
-
-
-        <!-- ### contact
-
-            ================================================== -->
-
-        <section id="contact" class="s-contact target-section">
-
-          <div class="row contact-top">
-
-            <div class="column lg-12">
-
-              <h2 class="text-pretitle">Hubungi Saya</h2>
-
-
-
-              <p class="h1">
-
-                I’d love to hear from you. Whether you have a question or just a
-
-                chat about frontend development, design, tech, or art — feel
-
-                free to message me.
-
-              </p>
-
-            </div>
-
-          </div>
-
-          <!-- end contact-top -->
-
-
-
-          <div class="row contact-bottom">
-
-            <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
-
-              <h3 class="text-pretitle">Hubungi Saya</h3>
-
-              <p class="contact-links">
-
-                <a href="mailto:denkysudarto@gmail.com" class="mailtoui"
-
-                  >denkysudarto@gmail.com</a
-
-                >
-
-                <br />
-
-                <a href="tel:+62895395422678">+62 895 3954 22678</a>
-
-              </p>
-
-            </div>
-
-            <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
-
-              <h3 class="text-pretitle">Media Sosial</h3>
-
-              <ul class="contact-social">
-
-                <li>
-
-                  <a href="https://www.linkedin.com/in/denky-sudarto-95b183343/"
-
-                    >Linkedin</a
-
-                  >
-
-                </li>
-
-                <li>
-
-                  <a href="https://www.instagram.com/userdy.7/">Instagram</a>
-
-                </li>
-
-                <li><a href="https://github.com/Dendar07/">Github</a></li>
-
-                <li><a href="https://denks07.github.io/portfolio-denky/" target="_blank">Portfolio</a></li>
-
-              </ul>
-
-            </div>
-
-            <div class="column lg-4 md-12 contact-block">
-
-              <a
-
-                href="mailto:denkysudarto@gmail.com"
-
-                class="mailtoui btn btn--medium u-fullwidth contact-btn"
-
-                >Kirim Pesan.</a
-
-              >
-
-            </div>
-
-          </div>
-
-          <!-- end contact-bottom -->
-
-        </section>
-
-        <!-- end contact -->
-
-      </main>
-
-      <!-- end s-content -->
-
-
-
-      <!-- ## footer
-
-        ================================================== -->
-
-      <footer class="s-footer">
-
-        <div class="row">
-
-          <div class="column ss-copyright">
-
-            <span>© Copyright Denky 2026</span>
-
-            <span
-
-              >Design by
-
-              <a href="#intro" class="smoothscroll">Denky Sudarto</a></span
-
-            >
-
-          </div>
-
-
-
-          <div class="ss-go-top">
-
-            <a class="smoothscroll" title="Back to Top" href="#top">
-
-              <svg
-
-                xmlns="http://www.w3.org/2000/svg"
-
-                viewBox="0 0 24 24"
-
-                fill-rule="evenodd"
-
-                clip-rule="evenodd"
-
-              >
-
-                <path
-
-                  d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"
-
-                />
-
-              </svg>
-
+            <a class="project-visual" href="#project-dashboard" aria-label="Lihat detail Data Management Dashboard">
+              <img src="images/portfolio/project-1.jpg" alt="Preview Data Management Dashboard" loading="lazy" decoding="async" width="1600" height="780">
             </a>
+            <div class="project-bottom">
+              <div class="tech-tags"><span>Dashboard</span><span>Data Management</span><span>UI Design</span></div>
+              <a class="project-link" href="#project-dashboard">Lihat detail ↗</a>
+            </div>
+            <details id="project-dashboard" style="margin-top:16px">
+              <summary style="cursor:pointer;font-size:12px;font-weight:700">Tentang proyek</summary>
+              <p class="project-description" style="margin-top:12px">Dashboard ini dirancang untuk memudahkan akses ke data pengguna, pemasok, stok, barang masuk, barang keluar, dan peminjaman barang. Catatan teknologi pada versi sebelumnya mencakup Laravel, Tailwind CSS, dan Vue.js.</p>
+            </details>
+          </article>
 
-          </div>
+          <article class="project reveal">
+            <div class="project-meta">
+              <span class="project-year mono">2026</span>
+              <h3 class="project-title">AsiaPride</h3>
+              <p class="project-description">Landing page untuk komunitas game dengan informasi fitur, navigasi yang jelas, dan ajakan untuk mulai bermain.</p>
+              <span class="project-type mono">Gaming / Website</span>
+            </div>
+            <a class="project-visual" href="https://asiapride100-lgtm.github.io/asiapride/" target="_blank" rel="noreferrer" aria-label="Buka website AsiaPride">
+              <img src="images/portfolio/project-2.jpg" alt="Preview website AsiaPride" loading="lazy" decoding="async" width="1600" height="780">
+            </a>
+            <div class="project-bottom">
+              <div class="tech-tags"><span>Landing Page</span><span>UI Design</span><span>Gaming</span></div>
+              <a class="project-link" href="https://asiapride100-lgtm.github.io/asiapride/" target="_blank" rel="noreferrer">Buka website ↗</a>
+            </div>
+          </article>
 
+          <article class="project reveal">
+            <div class="project-meta">
+              <span class="project-year mono">2026</span>
+              <h3 class="project-title">Personal Financial Record</h3>
+              <p class="project-description">Konsep aplikasi pencatatan keuangan dengan ringkasan saldo, tren transaksi, serta fitur menambah dan mengedit catatan.</p>
+              <span class="project-type mono">Mobile / Finance</span>
+            </div>
+            <a class="project-visual" href="#project-finance" aria-label="Lihat detail Personal Financial Record">
+              <img src="images/portfolio/project-3.jpg" alt="Preview Personal Financial Record" loading="lazy" decoding="async" width="1600" height="780">
+            </a>
+            <div class="project-bottom">
+              <div class="tech-tags"><span>Mobile App</span><span>Finance</span><span>Interface</span></div>
+              <a class="project-link" href="#project-finance">Lihat detail ↗</a>
+            </div>
+            <details id="project-finance" style="margin-top:16px">
+              <summary style="cursor:pointer;font-size:12px;font-weight:700">Tentang proyek</summary>
+              <p class="project-description" style="margin-top:12px">Antarmuka aplikasi keuangan personal untuk melihat saldo, tren pemasukan dan pengeluaran, serta daftar transaksi. Deskripsi awal menyebut React Native.</p>
+            </details>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-meta">
+              <span class="project-year mono">2026</span>
+              <h3 class="project-title">To-Do App</h3>
+              <p class="project-description">Aplikasi pencatatan tugas harian dengan tampilan sederhana untuk menambahkan, melihat, dan menghapus daftar tugas.</p>
+              <span class="project-type mono">Mobile / Productivity</span>
+            </div>
+            <a class="project-visual" href="#project-todo" aria-label="Lihat detail To-Do App">
+              <img src="images/portfolio/project-4.jpg" alt="Preview To-Do App" loading="lazy" decoding="async" width="1600" height="780">
+            </a>
+            <div class="project-bottom">
+              <div class="tech-tags"><span>Mobile App</span><span>Productivity</span><span>UI Design</span></div>
+              <a class="project-link" href="#project-todo">Lihat detail ↗</a>
+            </div>
+            <details id="project-todo" style="margin-top:16px">
+              <summary style="cursor:pointer;font-size:12px;font-weight:700">Tentang proyek</summary>
+              <p class="project-description" style="margin-top:12px">Aplikasi tugas dengan daftar item, input untuk menambah tugas, serta aksi hapus pada setiap item. Deskripsi awal menyebut React Native.</p>
+            </details>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-meta">
+              <span class="project-year mono">2026</span>
+              <h3 class="project-title">Absen</h3>
+              <p class="project-description">Eksplorasi desain aplikasi kehadiran dengan alur absensi online, pengajuan izin, login, dan verifikasi email.</p>
+              <span class="project-type mono">Product Design</span>
+            </div>
+            <a class="project-visual" href="#project-absen" aria-label="Lihat detail desain Absen">
+              <img src="images/portfolio/project-5.jpg" alt="Preview desain aplikasi Absen" loading="lazy" decoding="async" width="1600" height="780">
+            </a>
+            <div class="project-bottom">
+              <div class="tech-tags"><span>Figma</span><span>Mobile UI</span><span>Prototyping</span></div>
+              <a class="project-link" href="#project-absen">Lihat detail ↗</a>
+            </div>
+            <details id="project-absen" style="margin-top:16px">
+              <summary style="cursor:pointer;font-size:12px;font-weight:700">Tentang proyek</summary>
+              <p class="project-description" style="margin-top:12px">Konsep desain aplikasi absensi dengan alur login, verifikasi email, absensi online, absensi dari rumah, dan pengajuan izin. Deskripsi awal menyebut Figma.</p>
+            </details>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-meta">
+              <span class="project-year mono">2026</span>
+              <h3 class="project-title">Eli Sport 1 — Product Landing Page</h3>
+              <p class="project-description">Konsep landing page produk dengan gambar utama, informasi produk, dan navigasi untuk membantu pengunjung mengeksplorasi detail.</p>
+              <span class="project-type mono">Landing Page / Product</span>
+            </div>
+            <a class="project-visual" href="#project-eli" aria-label="Lihat detail landing page Eli Sport 1">
+              <img src="images/portfolio/project-6.jpg" alt="Preview landing page Eli Sport 1" loading="lazy" decoding="async" width="1600" height="780">
+            </a>
+            <div class="project-bottom">
+              <div class="tech-tags"><span>Product Page</span><span>Visual Design</span><span>Web</span></div>
+              <a class="project-link" href="#project-eli">Lihat detail ↗</a>
+            </div>
+            <details id="project-eli" style="margin-top:16px">
+              <summary style="cursor:pointer;font-size:12px;font-weight:700">Tentang proyek</summary>
+              <p class="project-description" style="margin-top:12px">Landing page produk yang menampilkan gambar perangkat, pengenalan produk, dan navigasi menuju informasi tambahan. Tautan demo belum dicantumkan pada materi sumber.</p>
+            </details>
+          </article>
         </div>
+      </div>
+    </section>
 
-      </footer>
+    <section class="section container" id="experience">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow mono">04 / Perjalanan</div>
+          <h2>Pengalaman & pendidikan.</h2>
+        </div>
+        <p>Pengalaman kerja dan pendidikan yang membentuk proses belajar saya di bidang teknologi.</p>
+      </div>
+      <div class="timeline-grid">
+        <div class="timeline-column reveal">
+          <h3>Pengalaman kerja</h3>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <h4>Kurir / Delivery Partner — Shopee Express</h4>
+              <p class="timeline-meta">Shopee Express (SPX) · <span class="timeline-date">Februari 2026 – Sekarang</span></p>
+              <p>Mengambil dan mengantarkan paket sesuai area pengiriman serta memperbarui status pengiriman melalui aplikasi.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <h4>Freelance Frontend Developer</h4>
+              <p class="timeline-meta">Freelance · <span class="timeline-date">Februari 2026 – Sekarang</span></p>
+              <p>Mengembangkan aplikasi internal untuk membantu UMKM mengelola proses kerja dan menerjemahkan kebutuhan pengguna menjadi fitur antarmuka.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <h4>Frontend Developer</h4>
+              <p class="timeline-meta">PT Yamisok — Kontrak · <span class="timeline-date">Januari 2025 – Maret 2025</span></p>
+              <p>Mengembangkan landing page dan company profile menggunakan React.js dan Tailwind CSS serta menyesuaikan tampilan dengan kebutuhan klien.</p>
+            </div>
+          </article>
+        </div>
+        <div class="timeline-column reveal">
+          <h3>Pendidikan</h3>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <h4>Universitas Tarumanagara</h4>
+              <p class="timeline-meta">S1 Teknik Informatika · <span class="timeline-date">Agustus 2026 – Sekarang</span></p>
+              <p>Menempuh pendidikan di bidang Teknik Informatika dengan fokus pada teknologi, pemrograman, dan pengembangan aplikasi.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div>
+              <h4>SMK Cinta Kasih Tzu Chi</h4>
+              <p class="timeline-meta">Pengembangan Perangkat Lunak dan Gim (PPLG) · <span class="timeline-date">Juli 2023 – April 2026</span></p>
+              <p>Mempelajari pemrograman, pengembangan website dan aplikasi, serta dasar-dasar UI/UX.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <!-- end s-footer -->
+    <section class="section container" id="contact">
+      <div class="contact-panel reveal">
+        <div>
+          <div class="eyebrow mono">05 / Kontak</div>
+          <h2>Punya ide?<br>Mari kita buat.</h2>
+          <p>Terbuka untuk kesempatan kerja, kolaborasi, dan diskusi seputar frontend development maupun UI/UX design.</p>
+          <a class="text-link" href="mailto:denkysudarto@gmail.com">Kirim email <span>↗</span></a>
+        </div>
+        <div class="contact-details">
+          <div class="contact-row"><span class="mono">Email</span><a href="mailto:denkysudarto@gmail.com">denkysudarto@gmail.com</a></div>
+          <div class="contact-row"><span class="mono">WhatsApp</span><a href="https://wa.me/6285781839145" target="_blank" rel="noreferrer">Hubungi via WhatsApp ↗</a></div>
+          <div class="contact-row"><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/denky-sudarto-95b183343/" target="_blank" rel="noreferrer">Profil LinkedIn ↗</a></div>
+          <div class="contact-row"><span class="mono">GitHub</span><a href="https://github.com/Dendar07/" target="_blank" rel="noreferrer">Dendar07 ↗</a></div>
+          <div class="contact-row"><span class="mono">Instagram</span><a href="https://www.instagram.com/den_19.77/" target="_blank" rel="noreferrer">@den_19.77 ↗</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner container">
+      <p class="mono">© <span id="year">2026</span> Denky Sudarto</p>
+      <p class="mono">Dibuat dengan perhatian pada detail.</p>
+      <a class="mono back-top" href="#top">Kembali ke atas ↑</a>
     </div>
+  </footer>
 
-    <!-- end -s-pagewrap -->
+  <script>
+    // Mobile navigation
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
 
+    // Update footer year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-
-    <!-- Java Script
-
-    ================================================== -->
-
-    <script src="js/plugins.js"></script>
-
-    <script src="js/main.js"></script>
-
-  </body>
-
+    // Subtle reveal animation; content remains visible if IntersectionObserver is unavailable
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('is-visible'));
+    }
+  </script>
+</body>
 </html>
